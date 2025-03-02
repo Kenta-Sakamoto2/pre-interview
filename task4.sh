@@ -5,6 +5,7 @@ TIMEFORMAT=%R
 cd /home/users/sakamo2/pre-interview/cvc5-Linux-x86_64-static/bin
 target="/home/users/sakamo2/pre-interview/queries"
 touch output.csv
+echo "FileName,Result,TimeElapsed" > output.csv
 for file in "$target"/*;
 do
     echo -n "$(basename "$file"),"
@@ -26,7 +27,7 @@ do
     ms=$"(($t-$start))"
     echo "scale=3; ${ms}/1000" | bc
    
-done > output.csv
+done >> output.csv
 mv output.csv /home/users/sakamo2/pre-interview
 cd /home/users/sakamo2/pre-interview/
 
